@@ -1,0 +1,23 @@
+RewriteEngine On
+RewriteRule ^index.html$ index.php
+RewriteRule ^logout.html$ logout.php
+RewriteRule ^questions.html$ questions.php
+RewriteRule ^fundraisers.html$ fundraisers.php
+RewriteRule ^signup.html$ signup.php
+RewriteRule ^signin.html$ signin.php
+RewriteRule ^legal.html$ legal.php
+RewriteRule ^contact-us.html$ contact-us.php
+RewriteRule ^faqs.html$ faqs.php
+RewriteRule ^dashboard.html$ dashboard.php
+RewriteRule ^forgot-password.html$ forgot-password.php
+RewriteRule ^privacy-policy.html$ privacy-policy.php
+RewriteRule ^terms-conditions.html$ terms-conditions.php
+RewriteRule ^backers.html$ backers.php
+RewriteRule ^about-us.html$ about-us.php
+RewriteRule ^news.html$ news.php
+RewriteCond %{QUERY_STRING} (.*)$
+RewriteRule  causes-([0-9]+)(\.[a-z]{3,4})?(.*)$  causes.php?causeId$1&%1 [NC]
+RewriteRule  news-([0-9]+)(\.[a-z]{3,4})?(.*)$  news.php?newsId$1&%1 [NC]
+RewriteRule ^u/(.*)$ http://www.digitalcollectionplate.com/fundeedonation.php?link=$1 [L,R,QSA]
+RewriteRule ^f/invalid http://www.digitalcollectionplate.com/dashboard.php?act=invalidfundee [L,R,QSA]
+ErrorDocument 404 /404.php
